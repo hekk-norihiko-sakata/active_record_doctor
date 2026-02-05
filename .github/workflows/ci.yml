@@ -23,10 +23,10 @@ jobs:
           --health-retries=3
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Set up Ruby
-        uses: ruby/setup-ruby@v3
+        uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.2.8
           bundler-cache: true
