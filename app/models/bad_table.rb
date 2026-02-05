@@ -1,2 +1,0 @@
-class BadTable < ApplicationRecord
-end
