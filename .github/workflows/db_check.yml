@@ -1,0 +1,19 @@
+# .github/workflows/db_check.yml
+name: DB Schema Check
+
+on: [pull_request]
+
+jobs:
+  schema_check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ruby/setup-ruby@v3
+        with:
+          bundler-cache: true
+      - name: Setup DB
+        run: bin/rails db:create db:schema:load
+      
+      # ここでチェック！
+      - name: Check for unindexed foreign keys
+        run: bundle exec rake active_record_doctor:unindexed_foreign_keys

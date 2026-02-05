@@ -1,0 +1,2 @@
+class BadTable < ApplicationRecord
+end
